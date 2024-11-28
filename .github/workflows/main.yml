@@ -20,5 +20,5 @@ jobs:
             protocol: ftps
             username: ${{ secrets.SFTP_USERNAME }}
             password: ${{ secrets.SFTP_PASSWORD }}
-            local-dir: .
+            local-dir: ./
             server-dir: ${{ secrets.REMOTE_PATH }}
