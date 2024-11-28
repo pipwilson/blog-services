@@ -1,0 +1,24 @@
+name: Publish to production
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build_job:
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get latest code
+        uses: actions/checkout@v4
+        with:
+            sparse-checkout: .
+      - name: Upload files to server
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+            server: ${{ secrets.SFTP_SERVER }}
+            protocol: ftps
+            username: ${{ secrets.SFTP_USERNAME }}
+            password: ${{ secrets.SFTP_PASSWORD }}
+            local-dir: .
+            server-dir: ${{ secrets.REMOTE_PATH }}
