@@ -1,5 +1,5 @@
 <?php
-// Get the intitle and inauthor parameters from the URL
+// Get the title and author parameters from the URL
 $title = isset($_GET['title']) ? urldecode($_GET['title']) : '';
 $author = isset($_GET['author']) ? urldecode($_GET['author']) : '';
 $url = isset($_GET['url']) ? urldecode($_GET['url']) : '';
